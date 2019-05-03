@@ -1,0 +1,61 @@
+ div class=container-fluid
+       div
+           div class=row
+        div class=span8
+          h1Time-based One-time Password Algorithmh1
+            pThis page contains a javascript implementation of the emTime-based One-time Password Algorithmem used by Google Authenticator and described in the a href=httptools.ietf.orgiddraft-mraihi-totp-timebased-06.htmlTOTP RFC Drafta.p
+            
+            pInstall Google Authenticator on your smartphone a href=httpitunes.apple.comauappgoogle-authenticatorid388497605mt=8iOSa, a href=httpsmarket.android.comdetailsid=com.google.android.apps.authenticator&hl=enAndroida, a href=httpm.google.comauthenticatorBlackberrya.  As the TOTP is an open standard you can use this app to create one-time passwords for your own application.  You add an account plus secret by scanning a QR code (more info on the a href=httpcode.google.compgoogle-authenticatorwikiKeyUriFormatgoogle code wikia).  The javascript below implements the algorithm the smartphone app uses to generate the OTP - you would use this same algorithm emserver-sideem to verify an OTP.p
+            
+            pPut it to the test by setting the base32 secret, scanning the QR code in Google Authenticate.  You should see the same OTP on your smartphone and displayed at the bottom on the page.p
+
+        div           
+           div
+            div class=row
+
+                form
+                fieldset
+                   
+                    div class=clearfix
+                        label for=secretSecret (base32)label
+                        div class=inputinput type=text size=30 name=secret id=secret class=xlarge value=JBSWY3DPEHPK3PXP div
+                    div
+                    !-- clearfix --
+                    div class=clearfix
+                        labelSecret (hex)label
+                        div class=inputspan class=label label-default id=secretHexspan
+                            span id='secretHexLength'spandiv
+                    div
+                    !-- clearfix --
+                    div class=clearfix
+                        labelQR Codelabel
+                        div class=inputimg id=qrImg src= div
+                    div
+                    !-- clearfix --
+                    div class=clearfix
+                        labelUnix epoch div 30 (padded hex)label
+                        div class=inputspan class=label label-default id='epoch'spandiv
+                    div
+                    !-- clearfix --
+                    div class=clearfix
+                        labelHMAC(secret, time)label
+                        div class=input id='hmac'div
+                    div
+                  !-- clearfix --
+                    div class=clearfix
+                        labelOne-time Passwordlabel
+                        div class=inputspan class=label label-primary id='otp'spandiv
+                    div
+                    !-- clearfix --
+                    div class=clearfix
+                        labelUpdating inlabel
+                        div class=inputspan id='updatingIn'spandiv
+                    div
+                    !-- clearfix --
+                    
+            
+                fieldset
+                form
+                div
+            div
+        div
