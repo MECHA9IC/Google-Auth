@@ -77,7 +77,7 @@
 
     }
 
-    $(function() {
+    function load() {
       updateOtp();
 
       $('#update').click(function(event) {
@@ -90,4 +90,4 @@
       });
 
       setInterval(timer, 1000);
-    });
+    };
