@@ -1,3 +1,5 @@
+    console.log('YA SIA VYKONALO');
+
     function dec2hex(s) {
       return (s < 15.5 ? '0' : '') + Math.round(s).toString(16);
     }
