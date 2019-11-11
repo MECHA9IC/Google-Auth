@@ -77,7 +77,7 @@
 
     }
 
-    function load() {
+    function load()  {
       updateOtp();
 
       $('#update').click(function(event) {
