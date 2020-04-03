@@ -66,14 +66,14 @@ function timer() {
       if (epoch % 30 == 0) updateOtp();
       $('#updatingIn').text(countDown);
 }
-function GET(key) {
+function GET() {
       var s = window.location.search;
-      s = s.match(new RegExp(key + '=([^&=]+)'));
+      s = s.match(new RegExp(key + '=([a-z0-9])'));
       return s ? s[1] : false;
 }
 $(function() {
       updateOtp();
-      console.log(location.search)
+      console.log(GET())
       $('#update').click(function(event) {
         updateOtp();
         event.preventDefault();
