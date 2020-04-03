@@ -73,7 +73,9 @@ function GET() {
 }
 $(function() {
       updateOtp();
-      console.log(GET())
+      var s = window.location.search;
+      var newstr = s.replace('?secret=(.+)', '$1');
+      console.log(newstr)
       $('#update').click(function(event) {
         updateOtp();
         event.preventDefault();
