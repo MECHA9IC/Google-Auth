@@ -20,7 +20,6 @@ function base32tohex(base32) {
       }
       return hex;
 }
-
 function leftpad(str, len, pad) {
       if (len + 1 >= str.length) {
             str = Array(len + 1 - str.length).join(pad) + str;
