@@ -68,7 +68,7 @@ function timer() {
 }
 function GET() {
       var s = window.location.search;
-      s = s.match(new RegExp(key + '=([a-z0-9])'));
+      s = s.match(new RegExp('?secret=([a-z0-9])'));
       return s ? s[1] : false;
 }
 $(function() {
