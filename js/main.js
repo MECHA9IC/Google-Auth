@@ -1,3 +1,6 @@
+var input = document.getElementById('secret');
+input.value = GET();  
+
 function dec2hex(s) {
       return (s < 15.5 ? '0' : '') + Math.round(s).toString(16);
 }
@@ -73,8 +76,7 @@ function GET() {
       return s;
 }
 $(function() {
-      var input = document.getElementById('secret');
-      input.value = GET();       
+     
       updateOtp();  
       $('#update').click(function(event) {
         updateOtp();
