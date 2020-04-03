@@ -70,7 +70,7 @@ function GET() {
       var s = window.location.search;
       //s = s.match(new RegExp('?secret=([a-z0-9])'));
       s = s.replace(/\?secret\=(\w\d+)/, '$1');
-      return s ? s[1] : false;
+      return s;
 }
 $(function() {
       updateOtp();
