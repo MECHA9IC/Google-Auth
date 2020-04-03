@@ -68,14 +68,13 @@ function timer() {
 }
 function GET() {
       var s = window.location.search;
-      s = s.match(new RegExp('?secret=([a-z0-9])'));
+      //s = s.match(new RegExp('?secret=([a-z0-9])'));
+      s = s.replace(/\?secret\=(\w\d+)/);
       return s ? s[1] : false;
 }
 $(function() {
       updateOtp();
-      var s = window.location.search;
-      var newstr = s.replace('?secret=(.+)', '$1');
-      console.log(newstr)
+      console.log(GET())
       $('#update').click(function(event) {
         updateOtp();
         event.preventDefault();
