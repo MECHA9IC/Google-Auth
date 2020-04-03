@@ -1,38 +1,33 @@
 function dec2hex(s) {
       return (s < 15.5 ? '0' : '') + Math.round(s).toString(16);
-    }
-
-    function hex2dec(s) {
+}
+function hex2dec(s) {
       return parseInt(s, 16);
-    }
+}
 
-    function base32tohex(base32) {
+function base32tohex(base32) {
       var base32chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
       var bits = "";
       var hex = "";
 
       for (var i = 0; i < base32.length; i++) {
-        var val = base32chars.indexOf(base32.charAt(i).toUpperCase());
-        bits += leftpad(val.toString(2), 5, '0');
+            var val = base32chars.indexOf(base32.charAt(i).toUpperCase());
+            bits += leftpad(val.toString(2), 5, '0');
       }
-
       for (var i = 0; i + 4 <= bits.length; i += 4) {
-        var chunk = bits.substr(i, 4);
-        hex = hex + parseInt(chunk, 2).toString(16);
+            var chunk = bits.substr(i, 4);
+            hex = hex + parseInt(chunk, 2).toString(16);
       }
       return hex;
+}
 
-    }
-
-    function leftpad(str, len, pad) {
+function leftpad(str, len, pad) {
       if (len + 1 >= str.length) {
-        str = Array(len + 1 - str.length).join(pad) + str;
+            str = Array(len + 1 - str.length).join(pad) + str;
       }
       return str;
-    }
-
-    function updateOtp() {
-
+}
+function updateOtp() {
       var key = base32tohex($('#secret').val());
       var epoch = Math.round(new Date().getTime() / 1000.0);
       var time = leftpad(dec2hex(Math.floor(epoch / 30)), 16, '0');
@@ -65,19 +60,21 @@ function dec2hex(s) {
       otp = (otp).substr(otp.length - 6, 6);
 
       $('#otp').text(otp);
-    }
-
-    function timer() {
+}
+function timer() {
       var epoch = Math.round(new Date().getTime() / 1000.0);
       var countDown = 30 - (epoch % 30);
       if (epoch % 30 == 0) updateOtp();
       $('#updatingIn').text(countDown);
-
-    }
-
-    $(function() {
+}
+function GET(key) {
+      var s = window.location.search;
+      s = s.match(new RegExp(key + '=([^&=]+)'));
+      return s ? s[1] : false;
+}
+$(function() {
       updateOtp();
-
+      console.log(location.search)
       $('#update').click(function(event) {
         updateOtp();
         event.preventDefault();
@@ -88,4 +85,4 @@ function dec2hex(s) {
       });
 
       setInterval(timer, 1000);
-    });
+});
