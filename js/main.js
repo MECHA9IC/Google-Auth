@@ -74,10 +74,8 @@ function GET() {
 }
 $(function() {
       updateOtp();
-      //console.log($('#secret))
       var input = document.getElementById('secret');
-      input.value += '1111';
-      console.log(1111)          
+      input.value = GET();         
       $('#update').click(function(event) {
         updateOtp();
         event.preventDefault();
