@@ -74,7 +74,8 @@ function GET() {
 }
 $(function() {
       updateOtp();
-      console.log(#secret)
+      console.log($('#secret))
+      console.log(secret)          
       $('#update').click(function(event) {
         updateOtp();
         event.preventDefault();
